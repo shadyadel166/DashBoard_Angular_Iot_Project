@@ -13,8 +13,8 @@ token:String,
 // }
 
 export interface IAdminLogin{
-    Email:String,
-    Password:String,
+    email:String,
+    password:String,
 }
 
 
@@ -22,7 +22,7 @@ export interface IAdminLogin{
 
 
 export interface IUser{
-    id:string,
+    _id:string,
     fullName:string,
     nationalId:number,
     email:string,
@@ -31,3 +31,4 @@ export interface IUser{
     address:string,
 
 }
+

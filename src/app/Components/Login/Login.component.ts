@@ -15,7 +15,7 @@ export class LoginComponent  {
   constructor(private router:Router,private ApiServeAdmin:ApiAdminService,private Auth:AuthServiceService) 
   {
 
-    this.adminLog={Email:'',Password:''};
+    this.adminLog={email:'',password:''};
 
    }
 

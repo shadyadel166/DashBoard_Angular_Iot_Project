@@ -11,7 +11,7 @@ export class UserService {
 constructor(private Http:HttpClient) { }
 
 getAllUser(){
-  return this.Http.get<IResultApi<IUser[]>>(`${this.dataUser}`)
+  return this.Http.get<IResultApi<IUser[]>>(`${this.dataUser}/getAll`)
   
 }
 getUerById(id:string)
@@ -23,7 +23,7 @@ editUser(id:string,data:FormData){
   return this.Http.put<IResultApi<any>>(`${this.dataUser}/${id}`, data)
 }
 deleteUser(id:string){
-  return this.Http.delete<IResultApi<any>>(`${this.dataUser}/${id}`)
+  return this.Http.delete<IResultApi<any>>(`${this.dataUser}/delete/${id}`)
 }
 
 }

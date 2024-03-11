@@ -15,7 +15,7 @@ import { AuthServiceService } from '../Auth.service';
         if(this.auth.GetFromStorage()==null){
             alert('Sorry you Must be login first ')
             // this.router.navigate(["/login",state.url])
-            // this.router.navigateByUrl("/login")
+            this.router.navigateByUrl("/login")
       return false;
 
         } else{

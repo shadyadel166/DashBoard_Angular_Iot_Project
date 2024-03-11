@@ -8,13 +8,12 @@
       <th scope="col"><i class="fa-solid fa-id-card me-2" style="color: #477fe1;"></i>National Id </th>
       <th scope="col"><i class="fa-solid fa-location-crosshairs me-2" style="color: #477fe1;"></i>Address </th>
       <th scope="col">Action</th>
-
     </tr>
   </thead>
   <tbody>
 
-    <tr  *ngFor="let item of listUser" >
-      <th scope="row">5</th>
+    <tr *ngFor="let item of listUser">
+      <th scope="row">{{item._id}}</th>
       <td>{{item.fullName}} </td>
       <td>{{item.email}}</td>
       <td>{{item.phoneNumber}}</td>
@@ -23,7 +22,7 @@
       <td class="d-flex justify-content-center align-items-center">
         <div style="width: 120px; " class="d-flex justify-content-center align-items-center">
 
-          <button class="button">
+          <button class="button" (click)="deleteUser(item._id)">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 69 14" class="svgIcon bin-top">
               <g clip-path="url(#clip0_35_24)">
                 <path fill="black"
@@ -53,12 +52,11 @@
         </div>
       </td>
     </tr>
-   
+
   </tbody>
+
 </table>
+
+
+<div *ngif="listUser.length == 0">NO Users Yet</div>
 <!-- <div *ngFor="let item of listUser"> {{item.email}}</div> -->
-
-
-
-
-

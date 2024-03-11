@@ -7,20 +7,20 @@ import { EditBlogComponent } from './Components/EditBlog/EditBlog.component';
 import { AuthGuard } from './Services/Guards/auth.guard';
 import { SideNavComponent } from './Components/SideNav/SideNav.component';
 export const routes: Routes = [
-  // {
-  //   path: '',component:SideNavComponent,
-  //   children: [
+  {
+    path: '',component:SideNavComponent,
+    children: [
      
-  //     {path:'blog',component:BlogComponent},
-  //     { path: 'AllUser', component: UserComponent },
-  //     { path: 'editUser', component: EditUserComponent },
-  //     { path: 'editblog', component: EditBlogComponent },
-  //   ],
+      {path:'blog',component:BlogComponent},
+      { path: 'AllUser', component: UserComponent },
+      { path: 'editUser', component: EditUserComponent },
+      { path: 'editblog', component: EditBlogComponent },
+    ],
     
-  //   canActivate: [AuthGuard]
-  // },
+    canActivate: [AuthGuard]
+  },
  
-  // { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
 
 
   // { path: '404', component: Page404Component },
@@ -28,12 +28,12 @@ export const routes: Routes = [
   // { path: '', redirectTo: '404', pathMatch: 'full' },
   // {
   
-{path:'',component:SideNavComponent},
-{path:'blog',component:BlogComponent},
-{path:'AllUser',component:UserComponent},
-{path:'editUser',component:EditUserComponent},
-{path:'editBlog',component:EditBlogComponent},
-{path:'login',component:LoginComponent},
+// {path:'',component:SideNavComponent},
+// {path:'blog',component:BlogComponent},
+// {path:'AllUser',component:UserComponent},
+// {path:'editUser',component:EditUserComponent},
+// {path:'editBlog',component:EditBlogComponent},
+// {path:'login',component:LoginComponent},
 
 
 ];

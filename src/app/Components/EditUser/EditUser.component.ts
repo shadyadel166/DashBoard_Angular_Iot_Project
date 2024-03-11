@@ -38,7 +38,7 @@ export class EditUserComponent implements OnInit {
     formData.append('phoneNumber', this.user.phoneNumber.toString());
     formData.append('address', this.user.address);
   
-    this.userService.editUser(this.user.id, formData).subscribe({
+    this.userService.editUser(this.user._id, formData).subscribe({
       next: (res) => {
         console.log(res);
         this.router.navigate(['/user']);

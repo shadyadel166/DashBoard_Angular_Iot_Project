@@ -143,12 +143,12 @@
             <div class="mb-3">
               <label class="form-label">Title Blog</label>
               <input type="text" formControlName="name" class="form-control">
-              <div *ngIf="form.controls['name'].invalid && form.controls['name'].touched" class="invalid-feedback">
-                <span *ngIf="form.controls['name'].hasError('required')">
+              <div *ngIf="form.controls['title'].invalid && form.controls['title'].touched" class="invalid-feedback">
+                <span *ngIf="form.controls['title'].hasError('required')">
                   Please Provide a correct Title Blog name
                 </span>
               </div>
-              <div *ngIf="form.controls['name'].valid && form.controls['name'].touched" class="valid-feedback">
+              <div *ngIf="form.controls['title'].valid && form.controls['title'].touched" class="valid-feedback">
                 Looks good!
               </div>
             </div>

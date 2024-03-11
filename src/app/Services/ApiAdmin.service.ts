@@ -17,6 +17,6 @@ filter(name:string,address:string){
 }
 
 Login(Admin:IAdminLogin){
-  return this.Http.post<IResultApi<any>>(this.dataBaseUrl+"/Admin/Login", Admin)
+  return this.Http.post<IResultApi<any>>(this.dataBaseUrl+"/login", Admin)
 }
 }

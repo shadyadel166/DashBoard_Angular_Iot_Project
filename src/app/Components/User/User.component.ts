@@ -15,18 +15,21 @@ export class UserComponent {
     private router: Router
   ) 
   { 
-    this.userService.getAllUser().subscribe({
-      next:(res)=>{
-        console.log(res)
-       this.listUser=res.data
-      },error:(err)=>{
-        console.log(err)
-      }
-    })
+   this.get()
   }
 
 
 // get all user
+get(){
+  this.userService.getAllUser().subscribe({
+    next:(res)=>{
+      this.listUser=res.data
+      console.log(this.listUser)
+    },error:(err)=>{
+      console.log(err)
+    }
+  })
+}
 
 
 
@@ -36,7 +39,7 @@ deleteUser(id:string){
   this.userService.deleteUser(id).subscribe({
     next:(res)=>{
       console.log(res);
-      this.router.navigate(['/user']); 
+      this.get()
     },error:(err)=>{
       console.log(err);
     }}
