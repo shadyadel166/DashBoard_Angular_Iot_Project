@@ -14,6 +14,7 @@ import { EditUserComponent } from "./Components/EditUser/EditUser.component";
 import { AuthInterceptor } from "./Services/Interceptors/auth.interceptor";
 import { ReactiveFormsModule } from '@angular/forms'; 
 import { EditBlogComponent } from "./Components/EditBlog/EditBlog.component";
+import { SearchBarComponent } from "./Components/SearchBar/SearchBar.component";
 
 
 
@@ -28,6 +29,7 @@ import { EditBlogComponent } from "./Components/EditBlog/EditBlog.component";
         LoginComponent,
        SideNavComponent,
        EditBlogComponent,
+       SearchBarComponent,
     
     ],
     imports:[
