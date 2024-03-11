@@ -1,3 +1,51 @@
+<div id="search">
+          <svg viewBox="0 0 420 60" xmlns="http://www.w3.org/2000/svg">
+            <rect className="bar" />
+            <g className="magnifier">
+              <circle className="glass" />
+              <line className="handle" x1={32} y1={32} x2={44} y2={44} />
+            </g>
+            <g className="sparks">
+              <circle className="spark" />
+              <circle className="spark" />
+              <circle className="spark" />
+            </g>
+            <g className="burst pattern-one">
+              <circle className="particle circle" />
+              <path className="particle triangle" />
+              <circle className="particle circle" />
+              <path className="particle plus" />
+              <rect className="particle rect" />
+              <path className="particle triangle" />
+            </g>
+            <g className="burst pattern-two">
+              <path className="particle plus" />
+              <circle className="particle circle" />
+              <path className="particle triangle" />
+              <rect className="particle rect" />
+              <circle className="particle circle" />
+              <path className="particle plus" />
+            </g>
+            <g className="burst pattern-three">
+              <circle className="particle circle" />
+              <rect className="particle rect" />
+              <path className="particle plus" />
+              <path className="particle triangle" />
+              <rect className="particle rect" />
+              <path className="particle plus" />
+            </g>
+          </svg>
+          <input
+          className="input_search"
+            type="search"
+            name="q"
+            aria-label="Search for inspiration"
+            placeholder=""
+          />
+        </div>
+        <div id="results"></div>
+
+
 <table class="table table-striped table-bordered border-primary mt-3 table-hover">
   <thead>
     <tr>
@@ -50,7 +98,26 @@
             </svg>
           </button>
         </div>
-      </td>
+        <div style="width: 120px; " class="d-flex justify-content-center align-items-center">
+  
+            <button class="continue-application" data-bs-toggle="modal" data-bs-target="#editUser" (click)="updateUser(item)">
+              <div>
+                <div class="pencil"></div>
+                <div class="folder">
+                  <div class="top">
+                    <svg viewBox="0 0 24 27">
+                      <path
+                        d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z">
+                      </path>
+                    </svg>
+                  </div>
+                  <div class="paper"></div>
+                </div>
+              </div>
+              Edit
+            </button>
+          </div>
+        </td>
     </tr>
 
   </tbody>
@@ -60,3 +127,46 @@
 
 <div *ngif="listUser.length == 0">NO Users Yet</div>
 <!-- <div *ngFor="let item of listUser"> {{item.email}}</div> -->
+<!-- Modal -->
+<div class="modal fade" id="editUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class=" modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">edit User</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+     
+          <form (ngSubmit)="EditApi()" [formGroup]="form">
+            <div class="mb-3">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="fullName" formControlName="fullName"
+                required> 
+            </div>
+            <div class="mb-3">
+              <label for="nationalId" class="form-label">National ID</label>
+              <input type="text" class="form-control" id="nationalId"  formControlName="nationalId"
+                required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email"  formControlName="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="phoneNr" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="phoneNr" formControlName="phoneNumber"required>
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <textarea class="form-control" id="address"  formControlName="address" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </div>

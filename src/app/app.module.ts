@@ -27,7 +27,6 @@ import { EditBlogComponent } from "./Components/EditBlog/EditBlog.component";
         BlogComponent,
         LoginComponent,
        SideNavComponent,
-       EditUserComponent,
        EditBlogComponent,
     
     ],

@@ -16,11 +16,11 @@ getAllUser(){
 }
 getUerById(id:string)
 {
-return this.Http.get<IResultApi<IUser>>(`${this.dataUser}/${id}`)
+return this.Http.get<IResultApi<IUser>>(`${this.dataUser}/getById/${id}`)
 }
 
 editUser(id:string,data:FormData){
-  return this.Http.put<IResultApi<any>>(`${this.dataUser}/update/${id}`, data)
+  return this.Http.put<IResultApi<IUser>>(`${this.dataUser}/update/${id}`, data)
 }
 deleteUser(id:string){
   return this.Http.delete<IResultApi<any>>(`${this.dataUser}/delete/${id}`)

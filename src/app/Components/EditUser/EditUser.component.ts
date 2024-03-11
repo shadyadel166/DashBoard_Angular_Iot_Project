@@ -16,23 +16,31 @@ export class EditUserComponent implements OnInit {
     private route: ActivatedRoute
 
   ) {
-       this.get()
+      //  this.get()
     }
    // get all user
-   get(){
-     this.userService.getAllUser().subscribe({
-       next:(res)=>{
-         this.listUser=res.data
-         console.log(this.listUser)
-       },error:(err)=>{
-         console.log(err)
-       }
-     })
-   }
+  //  get(){
+  //    this.userService.getAllUser().subscribe({
+  //      next:(res)=>{
+  //        this.listUser=res.data
+  //        console.log(this.listUser)
+  //      },error:(err)=>{
+  //        console.log(err)
+  //      }
+  //    })
+  //  }
    
   
 
   ngOnInit() {
+    this.userService.getAllUser().subscribe({
+      next:(res)=>{
+        this.listUser=res.data
+        console.log(this.listUser)
+      },error:(err)=>{
+        console.log(err)
+      }
+    })
     const userId = this.route.snapshot.paramMap.get('id')!;
     this.userService.getUerById(userId).subscribe({
       next: (res) => {
@@ -51,7 +59,7 @@ export class EditUserComponent implements OnInit {
     formData.append('email', this.user.email);
     formData.append('phoneNumber', this.user.phoneNumber.toString());
     formData.append('address', this.user.address);
-  
+  console.log(formData);
     this.userService.editUser(this.user._id, formData).subscribe({
       next: (res) => {
         console.log(res);
