@@ -13,17 +13,17 @@
   </thead>
   <tbody>
 
-    <tr>
-      <th scope="row">1</th>
-      <td>shady Adel</td>
-      <td>shadyadel642gmail.com</td>
-      <td>01140014619</td>
-      <td>299012101701397</td>
-      <td>Aswan</td>
+    <tr *ngFor="let item of listUser">
+      <th scope="row">{{item._id}}</th>
+      <td>{{item.fullName}} </td>
+      <td>{{item.email}}</td>
+      <td>{{item.phoneNumber}}</td>
+      <td>{{item.nationalId}}</td>
+      <td>{{item.address}}</td>
       <td class="d-flex justify-content-center align-items-center">
         <div style="width: 120px; " class="d-flex justify-content-center align-items-center">
 
-          <button class="continue-application" data-bs-toggle="modal" data-bs-target="#editUser">
+          <button class="continue-application" data-bs-toggle="modal" data-bs-target="#editUser" (click)="updateUser()">
             <div>
               <div class="pencil"></div>
               <div class="folder">
@@ -108,12 +108,12 @@
   <div class=" modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">edit User</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="container">
-          <h2>Edit User</h2>
+     
           <form (ngSubmit)="updateUser()">
             <div class="mb-3">
               <label for="fullName" class="form-label">Full Name</label>

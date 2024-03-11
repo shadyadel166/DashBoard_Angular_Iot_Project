@@ -9,14 +9,28 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./EditUser.component.css']
 })
 export class EditUserComponent implements OnInit {
-
-  user!: IUser; // Definite assignment assertion operator
-
+  listUser:IUser[]=[]
+  user!: IUser;
   constructor(
     private userService: UserService,
-    private router: Router,
     private route: ActivatedRoute
-  ) {}
+
+  ) {
+       this.get()
+    }
+   // get all user
+   get(){
+     this.userService.getAllUser().subscribe({
+       next:(res)=>{
+         this.listUser=res.data
+         console.log(this.listUser)
+       },error:(err)=>{
+         console.log(err)
+       }
+     })
+   }
+   
+  
 
   ngOnInit() {
     const userId = this.route.snapshot.paramMap.get('id')!;
@@ -41,7 +55,6 @@ export class EditUserComponent implements OnInit {
     this.userService.editUser(this.user._id, formData).subscribe({
       next: (res) => {
         console.log(res);
-        this.router.navigate(['/user']);
       },
       error: (err) => {
         console.log(err);

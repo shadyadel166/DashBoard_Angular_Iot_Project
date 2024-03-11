@@ -20,7 +20,7 @@ return this.Http.get<IResultApi<IUser>>(`${this.dataUser}/${id}`)
 }
 
 editUser(id:string,data:FormData){
-  return this.Http.put<IResultApi<any>>(`${this.dataUser}/${id}`, data)
+  return this.Http.put<IResultApi<any>>(`${this.dataUser}/update/${id}`, data)
 }
 deleteUser(id:string){
   return this.Http.delete<IResultApi<any>>(`${this.dataUser}/delete/${id}`)

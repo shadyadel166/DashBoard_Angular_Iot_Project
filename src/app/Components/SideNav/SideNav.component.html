@@ -77,18 +77,16 @@
           <!-- <span class="navbar-toggler-icon"></span> -->
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
+          
           <ul class="navbar-nav ms-auto d-flex flex-row">
             <a [routerLink]="['/login']"><button class="btn btn-primary">login</button></a>
-
-
+            
+            
             <li class="nav-item dropdown" *ngIf="loginAdmin != null">
               <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {{loginAdmin.Name}}
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item">LogOut</a></li>
-
                 <a class="nav-link me-3 me-lg-0"  (click)="logOut()"
                   id="navbarDropdownMenuLink"><i class="fa-solid fa-right-from-bracket"></i>
                 </a>
