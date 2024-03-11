@@ -1,0 +1,282 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+.content-admin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     height: 100vh;
+    }
+
+.img-side{
+display: flex;
+flex-direction: row;
+justify-content: start;
+align-items: start;
+
+}
+.img-side img{
+    width: 600px;
+    /* background: transparent; */
+
+}
+
+.form-side{
+    display: flex;
+flex-direction: column;
+/* justify-content: center; */
+box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+height: 70vh;
+margin-left: 50px;
+width: 35%;
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.39);
+border-radius: 16px;
+/* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+
+box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 1);
+
+}
+
+.form-side h1{
+
+    font-size: 25px;
+    padding: 35px 0px;
+    color: #336fad;
+    text-align: center;
+    }
+    
+
+.form-admin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+   
+}
+
+
+/* input form */
+.form-control-admin {
+    position: relative;
+    margin: 10px 0 25px;
+    width: 300px;
+  }
+  
+  .form-control-admin input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px #000000 solid;
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 18px;
+    color: #000000;
+  }
+  
+  .form-control-admin input:focus,
+  .form-control-admin input:valid {
+    outline: 0;
+    border-bottom-color: rgb(0, 0, 0);
+  }
+  
+  .form-control-admin label {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    pointer-events: none;
+  }
+  
+  .form-control-admin label span {
+    display: inline-block;
+    font-size: 18px;
+    min-width: 5px;
+    color: #000000;
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .form-control-admin input:focus+label span,
+  .form-control-admin input:valid+label span {
+    color: rgb(0, 0, 0);
+    transform: translateY(-30px);
+  }
+
+  /* end form input */
+
+  /* button form */
+
+  .ui-btn {
+    --btn-default-bg: rgb(17, 155, 235);
+    --btn-padding: 15px 20px;
+    --btn-hover-bg: rgb(24, 173, 232);
+    --btn-transition: .3s;
+    --btn-letter-spacing: .1rem;
+    --btn-animation-duration: 1.2s;
+    --btn-shadow-color: rgba(0, 139, 252, 0.137);
+    --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
+    --hover-btn-color: #FAC921;
+    --default-btn-color: #fff;
+    --font-size: 16px;
+    /* 👆 this field should not be empty */
+    --font-weight: 600;
+    --font-family: Menlo,Roboto Mono,monospace;
+    /* 👆 this field should not be empty */
+  }
+  
+  /* button settings 👆 */
+  
+  .ui-btn {
+    box-sizing: border-box;
+    padding: var(--btn-padding);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--default-btn-color);
+    font: var(--font-weight) var(--font-size) var(--font-family);
+    background: var(--btn-default-bg);
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    transition: var(--btn-transition);
+    overflow: hidden;
+    box-shadow: var(--btn-shadow);
+    width: 50%;
+    margin-top: 50px;
+  }
+  
+  .ui-btn span {
+    letter-spacing: var(--btn-letter-spacing);
+    transition: var(--btn-transition);
+    box-sizing: border-box;
+    position: relative;
+    background: inherit;
+    width: 80%;
+  }
+  
+  .ui-btn span::before {
+    box-sizing: border-box;
+    position: absolute;
+    content: "";
+    background: inherit;
+    width: 80%;
+  }
+  
+  .ui-btn:hover, .ui-btn:focus {
+    /* background: var(--btn-hover-bg); */
+  }
+  
+  .ui-btn:hover span, .ui-btn:focus span {
+    color: var(--hover-btn-color);
+  }
+  
+  .ui-btn:hover span::before, .ui-btn:focus span::before {
+    animation: chitchat linear both var(--btn-animation-duration);
+  }
+  
+  @keyframes chitchat {
+    0% {
+      content: "#";
+    }
+  
+    5% {
+      content: ".";
+    }
+  
+    10% {
+      content: "^{";
+    }
+  
+    15% {
+      content: "-!";
+    }
+  
+    20% {
+      content: "#$_";
+    }
+  
+    25% {
+      content: "№:0";
+    }
+  
+    30% {
+      content: "#{+.";
+    }
+  
+    35% {
+      content: "@}-?";
+    }
+  
+    40% {
+      content: "?{4@%";
+    }
+  
+    45% {
+      content: "=.,^!";
+    }
+  
+    50% {
+      content: "?2@%";
+    }
+  
+    55% {
+      content: "\;1}]";
+    }
+  
+    60% {
+      content: "?{%:%";
+      right: 0;
+    }
+  
+    65% {
+      content: "|{f[4";
+      right: 0;
+    }
+  
+    70% {
+      content: "{4%0%";
+      right: 0;
+    }
+  
+    75% {
+      content: "'1_0<";
+      right: 0;
+    }
+  
+    80% {
+      content: "{0%";
+      right: 0;
+    }
+  
+    85% {
+      content: "]>'";
+      right: 0;
+    }
+  
+    90% {
+      content: "4";
+      right: 0;
+    }
+  
+    95% {
+      content: "2";
+      right: 0;
+    }
+  
+    100% {
+      content: "";
+      right: 0;
+    }
+  }

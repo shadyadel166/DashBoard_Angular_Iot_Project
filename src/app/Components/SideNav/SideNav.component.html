@@ -1,0 +1,187 @@
+<div class="d-flex" id="wrapper">
+
+  <!-- Sidebar -->
+  <div class="bg-light border-right" id="sidebar-wrapper" [ngClass]="status ? 'hide' : 'show'">
+    <a class="navbar-brand" href="#">
+      <img src="../../../assets/image_2024-03-02_16-59-45.png" height="70" alt="MDB Logo" loading="lazy" />
+    </a>
+    <div class="list-group list-group-flush">
+      <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
+              <i class="fa fa-blog me-3"></i> Blog
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <a [routerLink]="['/blog']" class="text-decoration-none"> <i class="fa fa-blog me-3"></i> Blog</a>
+            </div>
+            <div class="accordion-body">
+              <a href="" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#addBlog"><i
+                  class="fa fa-add me-3"></i> Add Blog</a>
+            </div>
+            <div class="accordion-body">
+              <a href="" [routerLink]="['/editblog']" class="text-decoration-none"> <i class="fa fa-edit me-3"></i> Edit
+                Blog</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+              aria-expanded="true" aria-controls="collapseTwo">
+              <i class="fa fa-users me-3"></i> Users
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <a [routerLink]="['/AllUser']" routerLinkActive="router-link-active" class="text-decoration-none"> <i
+                  class="fa fa-user me-3"></i> User</a>
+            </div>
+            <div class="accordion-body">
+              <a href="" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#staticBackdrop" > <i
+                  class="fa fa-add me-3"></i> Add User</a>
+            </div>
+            <div class="accordion-body">
+              <a [routerLink]="['/editUser']" class="text-decoration-none"><i class="fa fa-edit me-3"></i>Edit User</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+      <div class="container-fluid">
+        <button class="btn btn-primary" (click)="clickEvent()"><i class="fa fa-bars"></i></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <!-- <span class="navbar-toggler-icon"></span> -->
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <ul class="navbar-nav ms-auto d-flex flex-row">
+            <a [routerLink]="['/login']"><button class="btn btn-primary">login</button></a>
+
+
+            <li class="nav-item dropdown" *ngIf="loginAdmin != null">
+              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{loginAdmin.Name}}
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item">LogOut</a></li>
+
+                <a class="nav-link me-3 me-lg-0"  (click)="logOut()"
+                  id="navbarDropdownMenuLink"><i class="fa-solid fa-right-from-bracket"></i>
+                </a>
+              </ul>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+
+
+
+
+
+
+
+
+
+<!-- modal add blog -->
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="addBlog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-4 text-center  text-info" id="exampleModalLabel">Add Blog</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="container  ">
+          <form [formGroup]="form" (ngSubmit)="send()">
+          <!-- <form (ngSubmit)="send()"> -->
+            <!-- <h1 class="">Add Blog</h1> -->
+
+            <div class="mb-3">
+              <label class="form-label">Title Blog</label>
+              <input type="text" formControlName="name" class="form-control">
+              <div *ngIf="form.controls['name'].invalid && form.controls['name'].touched" class="invalid-feedback">
+                <span *ngIf="form.controls['name'].hasError('required')">
+                  Please Provide a correct Title Blog name
+                </span>
+              </div>
+              <div *ngIf="form.controls['name'].valid && form.controls['name'].touched" class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Blog Description</label>
+              <textarea class="form-control" formControlName="description"></textarea>
+              <div *ngIf="form.controls['description'].invalid && form.controls['description'].touched"
+                class="invalid-feedback">
+                <span *ngIf="form.controls['description'].hasError('required')">
+                  Please Provide a correct Blog description
+                </span>
+                <span *ngIf="form.controls['description'].hasError('minlength')">
+                  Product description must contain more than 30 letters.
+                </span>
+              </div>
+              <div *ngIf="form.controls['description'].valid && form.controls['description'].touched"
+                class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="">Blog Image</label>
+              <input type="file" class="form-control" #imginput (change)="chooseImage(imginput)">
+            </div>
+
+            <div class="modal-footer">
+
+              <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Add Blog</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
