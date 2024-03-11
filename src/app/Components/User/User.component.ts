@@ -12,8 +12,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class UserComponent {
   listUser: IUser[] = [];
   User!: IUser;
-  form:FormGroup = new FormGroup({});
-  constructor(private userService: UserService, private router: Router,private builder:FormBuilder) {
+  form: FormGroup = new FormGroup({});
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private builder: FormBuilder
+  ) {
     this.get();
   }
 
@@ -42,10 +46,10 @@ export class UserComponent {
     });
   }
 
-  updateUser(current : any){
+  updateUser(current: any) {
     this.User = current;
     console.log(this.updateUser);
-    this.form= this.builder.group({
+    this.form = this.builder.group({
       fullName: [this.User.fullName],
       nationalId: [this.User.nationalId],
       email: [this.User.email],
@@ -53,7 +57,5 @@ export class UserComponent {
       address: [this.User.address],
     });
   }
-  EditApi(){
-
-  }
+  EditApi() {}
 }

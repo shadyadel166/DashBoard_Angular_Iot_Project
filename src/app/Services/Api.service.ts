@@ -12,23 +12,23 @@ constructor(private Http:HttpClient) { }
 
 
 getAllBlog(){
-  return this.Http.get<IResultApi<IBlog[]>>(this.dataBaseUrl)
+  return this.Http.get<IResultApi<IBlog[]>>(this.dataBaseUrl+"/allBlog")
 }
 getBlogById(id:string)
 {
-  return this.Http.get<IResultApi<IBlog>>(this.dataBaseUrl+"/blog/"+id)
+  return this.Http.get<IResultApi<IBlog>>(this.dataBaseUrl+"/allBlog/"+id)
 }
 
 addBlog(data:FormData){
-  return this.Http.post<IResultApi<any>>(this.dataBaseUrl+"/blog",data)
+  return this.Http.post<IResultApi<any>>(this.dataBaseUrl+"/addBlog",data)
 }
 
 editBlog(id:string,data:FormData){
 
-  return this.Http.put<IResultApi<any>>(this.dataBaseUrl+"/blog/"+id, data)
+  return this.Http.put<IResultApi<any>>(this.dataBaseUrl+"/editBlog/"+id, data)
 }
 
 deleteBlog(id:string){
-  return this.Http.delete<IResultApi<any>>(this.dataBaseUrl+"/blog/"+id)
+  return this.Http.delete<IResultApi<any>>(this.dataBaseUrl+"/deleteBlog/"+id)
 }
 }
