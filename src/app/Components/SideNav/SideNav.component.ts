@@ -67,10 +67,14 @@ export class SideNavComponent {
     });
   }
 
+
+  // logout admin
   logOut() {
     this.auth.adminLogout();
   }
 
+
+// sidenav button
   status: boolean = false;
   clickEvent() {
     this.status = !this.status;

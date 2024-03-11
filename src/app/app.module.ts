@@ -20,6 +20,7 @@ import { SearchBarComponent } from "./Components/SearchBar/SearchBar.component";
 
 
 
+
 @NgModule({
     declarations:[
         AppComponent,
@@ -30,6 +31,7 @@ import { SearchBarComponent } from "./Components/SearchBar/SearchBar.component";
        SideNavComponent,
        EditBlogComponent,
        SearchBarComponent,
+   
     
     ],
     imports:[
