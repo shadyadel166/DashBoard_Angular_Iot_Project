@@ -1,41 +1,42 @@
-<!-- <div class="container w-75 "> -->
-  <!-- <form [formGroup]="form" (ngSubmit)="send()"> -->
-    <!-- <form (ngSubmit)="send()">
+<div class="container w-75 "> 
+  <form [formGroup]="form" (ngSubmit)="send()"> 
+     <!-- <form (ngSubmit)="send()"> -->
 <h1 class="text-center m-5 text-info">Add Blog</h1>
   
     <div class="mb-3">
       <label class="form-label">Title Blog</label>
-      <input type="text" formControlName="name" class="form-control" >
-      <div *ngIf="form.controls['name'].invalid && form.controls['name'].touched" class="invalid-feedback">
-        <span *ngIf="form.controls['name'].hasError('required')">
+      <input type="text" formControlName="title" class="form-control" >
+      <div *ngIf="form.controls['title'].invalid && form.controls['title'].touched" class="invalid-feedback">
+        <span *ngIf="form.controls['title'].hasError('required')">
           Please Provide a correct Title Blog name
         </span>
       </div>
-      <div *ngIf="form.controls['name'].valid && form.controls['name'].touched" class="valid-feedback">
+      <div *ngIf="form.controls['title'].valid && form.controls['title'].touched" class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="mb-3">
-      <label class="form-label">Blog Description</label>
-      <textarea class="form-control" formControlName="description" ></textarea>
-      <div *ngIf="form.controls['description'].invalid && form.controls['description'].touched"
+      <label class="form-label">Blog Body</label>
+      <textarea class="form-control" formControlName="body" ></textarea>
+      <div *ngIf="form.controls['body'].invalid && form.controls['body'].touched"
         class="invalid-feedback">
-        <span *ngIf="form.controls['description'].hasError('required')">
-          Please Provide a correct Blog description
+        <span *ngIf="form.controls['body'].hasError('required')">
+          Please Provide a correct Blog body
         </span>
-        <span *ngIf="form.controls['description'].hasError('minlength')">
-          Product description must contain more than 30 letters.
+        <span *ngIf="form.controls['body'].hasError('minlength')">
+          blog body must contain more than 30 letters.
         </span>
       </div>
-      <div *ngIf="form.controls['description'].valid && form.controls['description'].touched" class="valid-feedback">
+      <div *ngIf="form.controls['body'].valid && form.controls['body'].touched" class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="mb-3">
       <label for="">Blog Image</label>
-      <input type="file" class="form-control" #imginput (change)="chooseImage(imginput)">
+      <input type="file" class="form-control" #imgInput (change)="chooseImage(imgInput)">
+      <span *ngIf="!imageLoad">Photo is required</span>
     </div>
     
-    <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Add Blog</button>
+    <button type="submit"  class="btn btn-primary" [disabled]="form.invalid && !imageLoad">Add Blog</button>
   </form>
-</div> -->
+</div>

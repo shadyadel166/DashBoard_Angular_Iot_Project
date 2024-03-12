@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IUser } from '../../Model/IUser';
 import { Router } from '@angular/router';
 import { UserService } from '../../Services/User.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-User',
@@ -12,13 +12,19 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class UserComponent {
   listUser: IUser[] = [];
   User!: IUser;
-  form: FormGroup = new FormGroup({});
+  form: FormGroup ;
   constructor(
     private userService: UserService,
     private router: Router,
     private builder: FormBuilder
   ) {
     this.get();
+    this.form = this.builder.group({
+      fullName: [""],
+      nationalId: [""],
+      email: [""],
+      phoneNumber: [""],
+      address: [""],})
   }
 
   // get all user
@@ -48,14 +54,25 @@ export class UserComponent {
 
   updateUser(current: any) {
     this.User = current;
-    console.log(this.updateUser);
+    console.log(this.User);
     this.form = this.builder.group({
-      fullName: [this.User.fullName],
-      nationalId: [this.User.nationalId],
-      email: [this.User.email],
-      phoneNumber: [this.User.phoneNumber],
-      address: [this.User.address],
+      fullName: [this.User.fullName,[Validators.required]],
+      nationalId: [this.User.nationalId,[Validators.required]],
+      email: [this.User.email,[Validators.required]],
+      phoneNumber: [this.User.phoneNumber,[Validators.required]],
+      address: [this.User.address,[Validators.required]],
     });
   }
-  EditApi() {}
+  EditApi() {
+    this.userService.editUser(this.User._id, this.form.value).subscribe({
+      next: (res) => {
+        alert(res.message);
+        this.get();
+      },
+      error: (err) => {
+        alert(err);
+
+      },
+    })
+  }
 }
