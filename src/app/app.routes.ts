@@ -6,6 +6,7 @@ import { EditUserComponent } from './Components/EditUser/EditUser.component';
 import { EditBlogComponent } from './Components/EditBlog/EditBlog.component';
 import { AuthGuard } from './Services/Guards/auth.guard';
 import { SideNavComponent } from './Components/SideNav/SideNav.component';
+import { AddBlogComponent } from './Components/AddBlog/AddBlog.component';
 export const routes: Routes = [
   {
     path: '',component:SideNavComponent,
@@ -15,6 +16,7 @@ export const routes: Routes = [
       { path: 'AllUser', component: UserComponent },
       { path: 'editUser', component: EditUserComponent },
       { path: 'editblog', component: EditBlogComponent },
+      {path:'addBlog', component: AddBlogComponent}
     ],
     
     canActivate: [AuthGuard]

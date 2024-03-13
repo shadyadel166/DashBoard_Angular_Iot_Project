@@ -15,6 +15,7 @@ import { AuthInterceptor } from "./Services/Interceptors/auth.interceptor";
 import { ReactiveFormsModule } from '@angular/forms'; 
 import { EditBlogComponent } from "./Components/EditBlog/EditBlog.component";
 import { SearchBarComponent } from "./Components/SearchBar/SearchBar.component";
+import { AddBlogComponent } from "./Components/AddBlog/AddBlog.component";
 
 
 
@@ -31,6 +32,7 @@ import { SearchBarComponent } from "./Components/SearchBar/SearchBar.component";
        SideNavComponent,
        EditBlogComponent,
        SearchBarComponent,
+       AddBlogComponent,
    
     
     ],

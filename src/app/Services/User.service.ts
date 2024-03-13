@@ -19,7 +19,7 @@ getUerById(id:string)
 return this.Http.get<IResultApi<IUser>>(`${this.dataUser}/getById/${id}`)
 }
 
-editUser(id:string,data:FormData){
+editUser(id:string,data:any){
   return this.Http.put<IResultApi<IUser>>(`${this.dataUser}/update/${id}`, data)
 }
 deleteUser(id:string){

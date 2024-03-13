@@ -31,4 +31,9 @@ editBlog(id:string,data:FormData){
 deleteBlog(id:string){
   return this.Http.delete<IResultApi<any>>(this.dataBaseUrl+"/deleteBlog/"+id)
 }
+
+getBlogBytitle(title:string){
+  return this.Http.get<IResultApi<any>>(this.dataBaseUrl+"//getBlogByTitle/"+title)
+}
+
 }
